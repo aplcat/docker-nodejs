@@ -12,6 +12,9 @@ RUN mkdir -p /tmp/tce/optional \
     && mkdir /home/tc \
     && chown tc:staff /home/tc \
     && su tc -c "cd /home && tce-load -ic nodejs-0.12.0.tcz" \
+  	&& su rm -f /home/nodejs-0.12.0.tcz \
+  	&& su rm -f /home/nodejs-0.12.0.tcz.dep \
+  	&& su rm -f /home/openssl-1.0.1.tcz \
     && chmod a+x /etc/profile.d/nodejs.sh
 
 ENV PATH /usr/local/bin/nodejs/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
